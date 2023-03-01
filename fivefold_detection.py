@@ -44,16 +44,18 @@ def create_mask_library(signal, cropped_central_region, threshold):
 	return r_masks, n_masks, mask_lib
 
 
-def inspect_single_mask(full_mask, central_spot, subtracted_mask, indices):
+def inspect_single_mask(signal, full_mask, central_spot, subtracted_mask, indices):
 	i, j = indices
-	fig, ax = plt.subplots(1,3, figsize= (12,4))
-	ax[0].imshow(full_mask[i,j])
-	ax[1].imshow(central_spot[i,j])
-	ax[2].imshow(subtracted_mask[i,j])
+	fig, ax = plt.subplots(1,4, figsize= (12,4))
+	ax[0].imshow(signal[i,j])
+	ax[1].imshow(full_mask[i,j])
+	ax[2].imshow(central_spot[i,j])
+	ax[3].imshow(subtracted_mask[i,j])
 
-	ax[0].set_title('Full mask')
-	ax[1].set_title('Central spot')
-	ax[2].set_title('Central spot subtracted')
+	ax[0].set_title('Signal')
+	ax[1].set_title('Full mask')
+	ax[2].set_title('Central spot')
+	ax[3].set_title('Central spot subtracted')
 
 
 
